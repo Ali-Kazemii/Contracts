@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ir.nik.contract.di.injectKoin
 import ir.nik.contract.view.base.ContractPrivateViewModel
-import ir.nik.contract.view.contracts.ContractActivity
+import ir.nik.contract.view.contracts.ContractsActivity
 import ir.nik.contract.view.gateway.model.ContractsBindDataModel
 import ir.nik.contract.view.gateway.model.KEY_MODULE_CONTACTS
 import ir.nik.contracts.R
@@ -45,7 +45,7 @@ class ContractsGatewayActivity : AppCompatActivity() {
     }
 
     private fun gotoContractActivity() {
-        startActivity(Intent(this@ContractsGatewayActivity, ContractActivity::class.java))
+        startActivity(Intent(this@ContractsGatewayActivity, ContractsActivity::class.java))
     }
 
     private fun getInitValues() {

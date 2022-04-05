@@ -23,7 +23,7 @@
             android:exported="false" />
 
         <activity
-            android:name="ir.nik.contract.view.contracts.ContractActivity"
+            android:name="ir.nik.contract.view.contracts.ContractsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
 
         <activity

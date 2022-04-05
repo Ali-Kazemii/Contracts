@@ -8,16 +8,6 @@ plugins {
 android {
     compileSdk 31
 
-    signingConfigs {
-        register("release") {
-            storeFile = file(System.getenv("KEYPATH"))
-            keyAlias = System.getenv("ALIAS")
-            keyPassword = System.getenv("KEYPASSWORD")
-            storePassword = System.getenv("STOREPASSWORD")
-        }
-    }
-
-
     defaultConfig {
         applicationId "ir.nik.modulecontracts"
         minSdk 18
@@ -36,9 +26,6 @@ android {
         }
 
         getByName("release") {
-            signingConfig = signingConfigs.getByName("release")
-
-
             debuggable false
             // Enables resource shrinking, which is performed by the
             // Android Gradle plugin.

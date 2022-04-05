@@ -26,7 +26,7 @@ import ir.nik.contract.view.noconnection.ContractsNoConnectionFragment
 import ir.nik.contracts.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ContractActivity : ContractsBaseActivity() {
+class ContractsActivity : ContractsBaseActivity() {
 
     private val viewModel by viewModel<ContractViewModel>()
     private var listener: OnContractItemListener? = null
@@ -59,19 +59,19 @@ class ContractActivity : ContractsBaseActivity() {
             }
 
             override fun onAccounting(model: ContractResponse.Result) {
-                viewModel.checkConnection(this@ContractActivity) {
+                viewModel.checkConnection(this@ContractsActivity) {
                     gotoAccountingDocument(model.contractId ?: 0)
                 }
             }
 
             override fun onPeymanCard(model: ContractResponse.Result) {
-                viewModel.checkConnection(this@ContractActivity) {
+                viewModel.checkConnection(this@ContractsActivity) {
                     gotoPeymanCard(model.contractId ?: 0)
                 }
             }
 
             override fun onStatus(model: ContractResponse.Result) {
-                viewModel.checkConnection(this@ContractActivity) {
+                viewModel.checkConnection(this@ContractsActivity) {
                     gotoContractStatus(model.contractId ?: 0)
                 }
             }
@@ -178,7 +178,7 @@ class ContractActivity : ContractsBaseActivity() {
                 contractId,
                 object : ContractAttachmentFragment.OnActionListener {
                     override fun onItemClick(dcId: Long, caId: Long) {
-                        val intent = Intent(this@ContractActivity, ContractsAttachmentActivity::class.java)
+                        val intent = Intent(this@ContractsActivity, ContractsAttachmentActivity::class.java)
                         val bundle = Bundle()
                         bundle.putLong(ContractsConst.KEY_DC_ID, dcId)//patId
                         bundle.putLong(ContractsConst.KEY_RELATED_TABLE_ID, caId)
