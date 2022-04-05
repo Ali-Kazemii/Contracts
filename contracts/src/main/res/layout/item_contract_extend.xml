@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_center_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.49" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_center_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.51" />
+
+        <TextView
+            android:id="@+id/lblExtendCode"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/extend_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtExtendCode"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblExtendCode"
+            app:layout_constraintTop_toTopOf="@id/lblExtendCode" />
+
+        <TextView
+            android:id="@+id/lblExtendDate"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/extend_date"
+            app:layout_constraintEnd_toStartOf="@id/guideline_center_left"
+            app:layout_constraintTop_toTopOf="@id/lblExtendCode"
+            android:layout_marginTop="0dp"/>
+
+        <TextView
+            android:id="@+id/txtExtendDate"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblExtendDate"
+            app:layout_constraintTop_toTopOf="@id/lblExtendDate" />
+
+        <TextView
+            android:id="@+id/lblExtendType"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/extend_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtExtendCode" />
+
+        <TextView
+            android:id="@+id/txtExtendType"
+            style="@style/TextCaptionStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/lblExtendType"
+            app:layout_constraintTop_toTopOf="@id/lblExtendType" />
+
+
+        <TextView
+            android:id="@+id/lblDurationType"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/duration_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtExtendType" />
+
+        <TextView
+            android:id="@+id/txtDurationType"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblDurationType"
+            app:layout_constraintTop_toTopOf="@id/lblDurationType" />
+
+
+        <TextView
+            android:id="@+id/lblChangeDuration"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/change_duration"
+            app:layout_constraintEnd_toStartOf="@id/guideline_center_left"
+            app:layout_constraintTop_toTopOf="@id/lblDurationType"
+            android:layout_marginTop="0dp"/>
+
+        <TextView
+            android:id="@+id/txtChangeDuration"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblChangeDuration"
+            app:layout_constraintTop_toTopOf="@id/lblChangeDuration" />
+
+
+        <TextView
+            android:id="@+id/lblPercent"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/percent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDurationType" />
+
+        <TextView
+            android:id="@+id/txtPercent"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblPercent"
+            app:layout_constraintTop_toTopOf="@id/lblPercent" />
+
+
+        <TextView
+            android:id="@+id/lblExpireDate"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/expire_date"
+            android:layout_marginTop="0dp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_center_left"
+            app:layout_constraintTop_toTopOf="@id/lblPercent"/>
+
+        <TextView
+            android:id="@+id/txtExpireDate"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblExpireDate"
+            app:layout_constraintTop_toTopOf="@id/lblExpireDate" />
+
+
+        <TextView
+            android:id="@+id/lblDebitPrice"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/debit_price"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtPercent" />
+
+        <TextView
+            android:id="@+id/txtDebitPrice"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblDebitPrice"
+            app:layout_constraintTop_toTopOf="@id/lblDebitPrice" />
+
+
+        <TextView
+            android:id="@+id/lblCreditPrice"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/credit_price"
+            app:layout_constraintEnd_toStartOf="@id/guideline_center_left"
+            app:layout_constraintTop_toTopOf="@id/lblDebitPrice"
+            android:layout_marginTop="0dp"/>
+
+        <TextView
+            android:id="@+id/txtCreditPrice"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblCreditPrice"
+            app:layout_constraintTop_toTopOf="@id/lblCreditPrice" />
+
+
+        <TextView
+            android:id="@+id/lblStatus"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/has_extend_insurance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDebitPrice" />
+
+        <TextView
+            android:id="@+id/txtStatus"
+            style="@style/TextCaptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblStatus"
+            app:layout_constraintTop_toTopOf="@id/lblStatus" />
+
+        <TextView
+            android:id="@+id/lblDescription"
+            style="@style/LabelCaptionStyle"
+            android:text="@string/description1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtStatus" />
+
+        <TextView
+            android:id="@+id/txtDescription"
+            style="@style/TextCaptionStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@id/lblDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/lblDescription" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

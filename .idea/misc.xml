@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/app/src/main/res/drawable/ic_attachment.xml" value="0.19947916666666668" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/app/src/main/res/layout/activity_main.xml" value="0.3546875" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/app/src/main/res/layout/item_contract_attachment.xml" value="0.18333333333333332" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/border_chip_selected.xml" value="0.19907407407407407" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/circle_primary.xml" value="0.2101851851851852" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_add.xml" value="0.26851851851851855" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_back.xml" value="0.17222222222222222" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_checklist.xml" value="0.20833333333333334" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_clock.xml" value="0.20833333333333334" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_close_circle.xml" value="0.19907407407407407" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_delete.xml" value="0.26851851851851855" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_designer.xml" value="0.20833333333333334" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_download.xml" value="0.26851851851851855" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_filter.xml" value="0.2101851851851852" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_financial.xml" value="0.20833333333333334" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_goods.xml" value="0.20833333333333334" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_helmet.xml" value="0.20833333333333334" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_no_image.xml" value="0.26851851851851855" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_pictures.xml" value="0.20833333333333334" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_save.xml" value="0.17222222222222222" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_stop_hand.xml" value="0.20833333333333334" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/drawable/ic_upload.xml" value="0.26851851851851855" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/font/iran_sans.xml" value="0.37083333333333335" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/activity_attachment.xml" value="0.2916666666666667" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/activity_contract.xml" value="0.2916666666666667" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/activity_gateway.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/contain_contract_filter.xml" value="0.3546875" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/contain_report.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/dialog_register_data.xml" value="0.25" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_accounting_document.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_add_attachment.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_attachment.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_attachment_contracts.xml" value="0.2916666666666667" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_contract_attachment.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_contract_delay.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_contract_executive.xml" value="0.3546875" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_contract_extend.xml" value="0.2" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_contract_filter.xml" value="0.3314814814814815" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_contract_goods.xml" value="0.3546875" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_contract_list.xml" value="0.22" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_contract_status.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_goods_subsystem.xml" value="0.3265625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_no_connection.xml" value="0.3546875" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_peyman_card.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/fragment_search.xml" value="0.3546875" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_attachment.xml" value="0.25" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_attachment_chosen.xml" value="0.18333333333333332" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_attachment_delete.xml" value="0.18333333333333332" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_attachment_image.xml" value="0.18333333333333332" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_chip_filter.xml" value="0.340625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_contract.xml" value="0.25" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_contract_delay.xml" value="0.18333333333333332" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_contract_executive.xml" value="0.18333333333333332" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_contract_extend.xml" value="0.18333333333333332" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/item_contract_goods.xml" value="0.18333333333333332" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/items.xml" value="0.3265625" />
+        <entry key="..\:/Nikafarinegan/Libraries/Modules/ModuleContracts/Project/ModuleContracts/contracts/src/main/res/layout/layout_last_update.xml" value="0.340625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

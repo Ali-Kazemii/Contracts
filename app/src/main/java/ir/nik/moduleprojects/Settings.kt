@@ -1,0 +1,31 @@
+package ir.nik.moduleprojects
+
+val hostName = "http://185.79.156.176:8014/api/" //local
+
+val personnelId: Long = 0
+
+val postId: Long = 0
+
+
+val userName:Long =  101818L
+val userId: Long = 11003L
+
+/*val userName:Long =  101763L
+val userId: Long = 10969L*/
+
+/*val userName:Long =  101888
+val userId: Long = 11054*/
+
+val imei = "cardboard_imei"
+
+val osVersion = "1.0"
+
+val deviceModel = "cardboard_device"
+
+val appVersion = "1.0"
+
+val token =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYTVhMzYzNi00MGE2LTY5NGUtNjgxNS0wNDM3ZjhhOTAwNmEiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkyNTQvIiwiaWF0IjoxNjQ4NzA3OTQxLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjExMDAzIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IjEwMTgxOCIsIkRpc3BsYXlOYW1lIjoi2YXYudmF2YUgKiDYrdiz2YrZhiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvc2VyaWFsbnVtYmVyIjoiMCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdXNlcmRhdGEiOiIxMTAwMyIsIm5iZiI6MTY0ODcwNzk0MSwiZXhwIjoxNjQ4NzY3OTQxLCJhdWQiOiJBbnkifQ.M1-BBlVSI0NzpXSJSuu_XL_NhhJRndhxd0GO5R-zmnw"
+//    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZjY0NmQ2NS1kNWZiLTU5NzEtMDA4NS0zODExMTNiZTFiMGYiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkyNTQvIiwiaWF0IjoxNjQzMzY5OTQ4LCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjExMDAzIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IjEwMTgxOCIsIkRpc3BsYXlOYW1lIjoi2YXYudmF2YUgKiDYrdiz2YrZhiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvc2VyaWFsbnVtYmVyIjoiMCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdXNlcmRhdGEiOiIxMTAwMyIsIm5iZiI6MTY0MzM2OTk0OCwiZXhwIjoxNjQzNDI5OTQ4LCJhdWQiOiJBbnkifQ.4jZ49y69B-bhy7kFKTsMd_VOHu6Zg4BxcKtLpsOcmGc"
+
+

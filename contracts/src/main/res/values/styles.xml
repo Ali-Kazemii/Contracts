@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile</item>
+        <item name="android:layoutDirection">ltr</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+    <style name="LabelCaptionStyle" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textAppearanceCaption11</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="TextCaptionStyle" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textAppearanceCaption11</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:background">@color/onSurfaceSecondary</item>
+    </style>
+
+    <style name="Divider.Vertical">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+    <style name="TextTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/textAppearanceSubtitle2</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:fontFamily">@font/iran_sans_mobile</item>
+    </style>
+
+</resources>

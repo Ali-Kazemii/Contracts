@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_primary"
+                    android:tint="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutSearch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutSearch"
+                    app:srcCompat="@drawable/ic_back" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_primary"
+                    android:tint="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@id/layoutSearch"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/layoutSearch"
+                    app:srcCompat="@drawable/ic_filter" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/border_primary"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="@id/btnBack"
+                    app:layout_constraintStart_toEndOf="@id/btnFilter"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgSearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:tint="@color/colorPrimary"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_search" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/search_in_contracts"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/textAppearanceBody2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/imgSearch"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <include
+                android:id="@+id/layoutUpdate"
+                layout="@layout/layout_last_update_contracts"
+                android:visibility="gone" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutContractStatusFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/onSurfaceSecondary"
+                android:paddingStart="@dimen/guid_line"
+                android:paddingTop="8dp"
+                android:paddingEnd="@dimen/guid_line"
+                android:paddingBottom="8dp"
+                android:visibility="gone"
+                app:layout_constraintHeight_min="50dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txtContractStatusName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textAppearanceCaption12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutContractStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/onSurfaceSecondary"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rdbCurrent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:clickable="false"
+                    android:checked="true"/>
+
+                <TextView
+                    android:id="@+id/txtCurrentStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/current"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textAppearanceSubtitle2"
+                    app:layout_constraintBottom_toBottomOf="@id/rdbCurrent"
+                    app:layout_constraintEnd_toStartOf="@id/rdbCurrent"
+                    app:layout_constraintTop_toTopOf="@id/rdbCurrent" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rdbInExchange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_center"
+                    app:layout_constraintTop_toTopOf="@id/rdbCurrent" />
+
+                <TextView
+                    android:id="@+id/txtInExchangeStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/in_exchange"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textAppearanceSubtitle2"
+                    app:layout_constraintBottom_toBottomOf="@id/rdbInExchange"
+                    app:layout_constraintEnd_toStartOf="@id/rdbInExchange"
+                    app:layout_constraintTop_toTopOf="@id/rdbInExchange" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rdbTerminated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:clickable="false"
+                    app:layout_constraintTop_toBottomOf="@id/rdbCurrent" />
+
+                <TextView
+                    android:id="@+id/txtTerminatedStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/terminated"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textAppearanceSubtitle2"
+                    app:layout_constraintBottom_toBottomOf="@id/rdbTerminated"
+                    app:layout_constraintEnd_toStartOf="@id/rdbTerminated"
+                    app:layout_constraintTop_toTopOf="@id/rdbTerminated" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/rdbNeedSpecify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_center"
+                    app:layout_constraintTop_toTopOf="@id/rdbTerminated" />
+
+                <TextView
+                    android:id="@+id/txtNeedSpecifyStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/need_specify"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textAppearanceSubtitle2"
+                    app:layout_constraintBottom_toBottomOf="@id/rdbNeedSpecify"
+                    app:layout_constraintEnd_toStartOf="@id/rdbNeedSpecify"
+                    app:layout_constraintTop_toTopOf="@id/rdbNeedSpecify" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ir.awlrhm.modules.view.RecyclerView
+                android:id="@+id/rclFilter"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ir.awlrhm.modules.view.RecyclerView
+        android:id="@+id/rclContract"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
