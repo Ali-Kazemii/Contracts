@@ -64,8 +64,8 @@ val databaseModule = module {
 val listModule = arrayListOf(appModule, viewModelModules, networkModules, databaseModule)
 
 
-private val koinModules by lazy {
+private val koinContractsModules by lazy {
     loadKoinModules(listModule)
 }
 
-fun injectKoin() = koinModules
+fun injectContractsKoin() = koinContractsModules

@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ir.nik.contract.di.injectKoin
+import ir.nik.contract.di.injectContractsKoin
 import ir.nik.contract.view.base.ContractPrivateViewModel
 import ir.nik.contract.view.contracts.ContractsActivity
 import ir.nik.contract.view.gateway.model.ContractsBindDataModel
@@ -18,12 +18,12 @@ class ContractsGatewayActivity : AppCompatActivity() {
 
     companion object {
         const val KEY_RESULT = "result"
-        const val LOG_OUT = 123321
+        const val LOG_OUT = 1234321
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        injectKoin()
+        injectContractsKoin()
         setContentView(R.layout.activity_gateway_contracts)
 
         //TODO: handle offline mode
