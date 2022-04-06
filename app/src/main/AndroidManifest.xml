@@ -17,7 +17,7 @@
         tools:targetApi="m"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="ir.nik.moduleprojects.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

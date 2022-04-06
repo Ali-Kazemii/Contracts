@@ -19,13 +19,13 @@ android {
     }
 
     buildTypes {
-        getByName("debug") {
+       debug {
             debuggable true
             minifyEnabled false
             shrinkResources false
         }
 
-        getByName("release") {
+        release {
             debuggable false
             // Enables resource shrinking, which is performed by the
             // Android Gradle plugin.
