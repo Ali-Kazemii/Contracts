@@ -45,7 +45,7 @@ val databaseModule = module {
     fun provideContractsDatabase(application: Application): ContractsDatabase {
         /*val MIGRATION_2_3 = object : Migration(2, 3) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE tbl_Document ADD COLUMN xDocumentType INTEGER")
+                database.execSQL("ALTER TABLE tbl_Contracts_Document ADD COLUMN xDocumentType INTEGER")
             }
         }*/
         return Room.databaseBuilder(application, ContractsDatabase::class.java, DATABASE_NAME)

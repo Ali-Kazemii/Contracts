@@ -14,13 +14,13 @@ import ir.nik.contract.data.database.entity.ContractsProjectReport
 interface ContractsProgressDao {
 
     /** #Begin Document ======================================================================== **/
-    @Query("SELECT * FROM tbl_Document WHERE xWbsPrId= :wbsPrId AND xDocumentType= :documentType")
+    @Query("SELECT * FROM tbl_Contracts_Document WHERE xWbsPrId= :wbsPrId AND xDocumentType= :documentType")
     fun getDocuments(wbsPrId: Long, documentType: Int): LiveData<ContractsProjectReport>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertDocument(document: ContractsDocument)
 
-    @Query("DELETE FROM tbl_Document WHERE xWbsPrId= :wbsPrId")
+    @Query("DELETE FROM tbl_Contracts_Document WHERE xWbsPrId= :wbsPrId")
     fun deleteDocuments(wbsPrId: Long)
 
     /** #End Document ===========================================================================**/

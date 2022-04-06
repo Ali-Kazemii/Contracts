@@ -31,10 +31,10 @@ interface ContractDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertContractAttachment(contractAttachment: ContractsAttachment)
 
-    @Query("SELECT * FROM tbl_ContractAttachment WHERE xContractId= :contractId")
+    @Query("SELECT * FROM tbl_Contracts_Attachment WHERE xContractId= :contractId")
     fun getContractAttachment(contractId: Long): LiveData<ContractsAttachment>
 
-    @Query("DELETE FROM tbl_ContractAttachment WHERE xContractId= :contractId")
+    @Query("DELETE FROM tbl_Contracts_Attachment WHERE xContractId= :contractId")
     fun deleteContractAttachment(contractId: Long)
 
     /** #End Contract Attachment ================================================================**/

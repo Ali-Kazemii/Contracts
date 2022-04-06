@@ -7,7 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import ir.nik.contract.view.gateway.ContractsGatewayActivity
 import ir.nik.contract.view.gateway.model.ContractsBindDataModel
-import ir.nik.contract.view.gateway.model.KEY_MODULE_CONTACTS
+import ir.nik.contract.view.gateway.model.KEY_MODULE_CONTRACTS
 import ir.nik.modulecontracts.R
 import ir.nik.moduleprojects.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             appVersion = appVersion,
         )
 
-        bundle.putSerializable(KEY_MODULE_CONTACTS, cardboardModel)
+        bundle.putSerializable(KEY_MODULE_CONTRACTS, cardboardModel)
         intent.putExtras(bundle)
         contractResult.launch(intent)
     }

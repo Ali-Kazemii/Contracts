@@ -13,13 +13,13 @@ import ir.nik.contract.data.database.entity.ContractsProjectReport
 interface ContractsAttachmentDao {
 
     /** #Begin Attachments ===================================================================== **/
-    @Query("SELECT * FROM tbl_Attachment WHERE xRelatedTableId= :relatedTableId AND xDcId= :dcId")
+    @Query("SELECT * FROM tbl_General_Contracts_Attachment WHERE xRelatedTableId= :relatedTableId AND xDcId= :dcId")
     fun getAttachments(relatedTableId: Long, dcId: Long): LiveData<ContractsProjectReport>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAttachment(attachment: GeneralContractsAttachment)
 
-    @Query("DELETE FROM tbl_Attachment WHERE xRelatedTableId= :relatedTableId AND xDcId= :dcId")
+    @Query("DELETE FROM tbl_General_Contracts_Attachment WHERE xRelatedTableId= :relatedTableId AND xDcId= :dcId")
     fun deleteAttachments(relatedTableId: Long, dcId: Long)
 
     /** #End Attachments ======================================================================= **/
