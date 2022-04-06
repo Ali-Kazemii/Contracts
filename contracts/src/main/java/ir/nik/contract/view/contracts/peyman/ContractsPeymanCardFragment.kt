@@ -13,7 +13,7 @@ import ir.nik.contract.data.network.model.request.ContractPeymanCardReportReques
 import ir.nik.contract.utils.APP_NAME
 import ir.nik.contract.utils.peymanCardJson
 import ir.nik.contract.view.base.ContractsBaseReportFragment
-import ir.nik.contract.view.contracts.ContractViewModel
+import ir.nik.contract.view.contracts.ContractsViewModel
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.contain_report_contracts.*
 import kotlinx.android.synthetic.main.fragment_peyman_card_contracts.*
@@ -23,7 +23,7 @@ internal class ContractsPeymanCardFragment(
     private val contractId: Long
 ) : ContractsBaseReportFragment(), OnPageErrorListener {
 
-    private val viewModel by viewModel<ContractViewModel>()
+    private val viewModel by viewModel<ContractsViewModel>()
     private var pdfStream: String? = null
 
     override fun onCreateView(

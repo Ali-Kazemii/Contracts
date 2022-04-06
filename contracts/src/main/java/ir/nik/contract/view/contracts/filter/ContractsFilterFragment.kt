@@ -14,18 +14,18 @@ import ir.nik.contract.data.network.model.request.ContractCustomerRequest
 import ir.nik.contract.data.network.model.request.ContractPlaceRequest
 import ir.nik.contract.utils.APP_NAME
 import ir.nik.contract.view.base.ContractsBaseFragment
-import ir.nik.contract.view.contracts.ContractViewModel
+import ir.nik.contract.view.contracts.ContractsViewModel
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.contain_contract_filter_contracts.*
 import kotlinx.android.synthetic.main.fragment_contract_filter_contracts.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-internal class ContractFilterFragment(
-    private val listFilter: MutableList<ContractFilterModel>,
+internal class ContractsFilterFragment(
+    private val listFilter: MutableList<ContractsFilterModel>,
     private val listener: OnActionListener
 ) : ContractsBaseFragment() {
 
-    private val viewModel by viewModel<ContractViewModel>()
+    private val viewModel by viewModel<ContractsViewModel>()
 
     private val listProjectCustomer: MutableList<ItemModel> = mutableListOf()
     private val listProjectPlace: MutableList<ItemModel> = mutableListOf()
@@ -39,15 +39,15 @@ internal class ContractFilterFragment(
         if(listFilter.isNotEmpty()){
             listFilter.forEach {model ->
                 when(model.type){
-                    ContractFilterType.CONTRACT_CUSTOMER ->{
+                    ContractsFilterType.CONTRACT_CUSTOMER ->{
                         contractCustomerId = model.id
                         spProjectCustomer.text = model.value
                     }
-                    ContractFilterType.CONTRACT_PLACE ->{
+                    ContractsFilterType.CONTRACT_PLACE ->{
                         contractPlaceId = model.id
                         spProjectPlace.text = model.value
                     }
-                    ContractFilterType.CONTRACT_STATUS ->{
+                    ContractsFilterType.CONTRACT_STATUS ->{
                         contractStatusId = model.id
                         spContractStatus.text = model.value
                     }
@@ -128,11 +128,11 @@ internal class ContractFilterFragment(
         }
         btnDone.setOnClickListener {
             listener.onFilterChoose(
-                mutableListOf<ContractFilterModel>().apply {
+                mutableListOf<ContractsFilterModel>().apply {
                     if (contractPlaceId != -1L)
                         add(
-                            ContractFilterModel(
-                                ContractFilterType.CONTRACT_PLACE,
+                            ContractsFilterModel(
+                                ContractsFilterType.CONTRACT_PLACE,
                                 "\\\"TBL_PlaceIDs_fk\\\":${contractPlaceId}",
                                 "${getString(R.string.electric_company)}: ${spProjectPlace.text}",
                                 contractPlaceId,
@@ -141,8 +141,8 @@ internal class ContractFilterFragment(
                         )
                     if (contractCustomerId != -1L)
                         add(
-                            ContractFilterModel(
-                                ContractFilterType.CONTRACT_CUSTOMER,
+                            ContractsFilterModel(
+                                ContractsFilterType.CONTRACT_CUSTOMER,
                                 "\\\"TBL_CustomerIDs_fk\\\":${contractCustomerId}",
                                 "${getString(R.string.company_contract)}: ${spProjectCustomer.text}",
                                 contractCustomerId,
@@ -151,8 +151,8 @@ internal class ContractFilterFragment(
                         )
                     if (contractStatusId != -1L)
                         add(
-                            ContractFilterModel(
-                                ContractFilterType.CONTRACT_STATUS,
+                            ContractsFilterModel(
+                                ContractsFilterType.CONTRACT_STATUS,
                                 "\\\"CNT_CsIDs_fk\\\":${contractStatusId}",
                                 "${getString(R.string.contract_status)}: ${spContractStatus.text}",
                                 contractStatusId,
@@ -244,10 +244,10 @@ internal class ContractFilterFragment(
 
 
     interface OnActionListener {
-        fun onFilterChoose(list: MutableList<ContractFilterModel>)
+        fun onFilterChoose(list: MutableList<ContractsFilterModel>)
     }
 
     companion object {
-        val TAG = "$APP_NAME: ${ContractFilterFragment::class.java.simpleName}"
+        val TAG = "$APP_NAME: ${ContractsFilterFragment::class.java.simpleName}"
     }
 }

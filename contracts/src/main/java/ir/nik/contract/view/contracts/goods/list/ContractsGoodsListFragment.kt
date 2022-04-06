@@ -1,4 +1,4 @@
-package ir.nik.contract.view.contracts.delay
+package ir.nik.contract.view.contracts.goods.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,26 +10,31 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ir.awlrhm.modules.enums.MessageStatus
 import ir.awlrhm.modules.extentions.showError
 import ir.awlrhm.modules.view.ActionDialog
-import ir.nik.contract.data.network.model.request.ContractDelayRequest
-import ir.nik.contract.data.network.model.response.ContractDelayResponse
+import ir.nik.contract.data.network.model.request.ContractGoodsRequest
+import ir.nik.contract.data.network.model.response.ContractGoodsResponse
 import ir.nik.contract.utils.APP_NAME
-import ir.nik.contract.utils.contractDelayJson
+import ir.nik.contract.utils.ContractsConst
+import ir.nik.contract.utils.contractGoodsJson
 import ir.nik.contract.utils.lastUpdateDate
 import ir.nik.contract.view.base.ContractsBaseFragment
-import ir.nik.contract.view.contracts.ContractViewModel
+import ir.nik.contract.view.contracts.ContractsViewModel
 import ir.nik.contracts.R
-import kotlinx.android.synthetic.main.fragment_contract_delay_contracts.*
+import kotlinx.android.synthetic.main.fragment_contract_goods_contracts.*
 import kotlinx.android.synthetic.main.layout_last_update_contracts.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-internal class ContractDelayFragment(
-    private val contractId: Long
+internal class ContractsGoodsListFragment(
+    private val contractId: Long,
+    private val ssId: Long,
+    private val name: String
 ) : ContractsBaseFragment() {
 
-    private val viewModel by viewModel<ContractViewModel>()
-    private val pageNumber = 1
+    private val viewModel by viewModel<ContractsViewModel>()
+    private var pageNumber = 1
 
     override fun setup() {
+        txtTitle.text = name
+
         if (viewModel.isOfflineMode) {
             layoutUpdate.isVisible = true
 
@@ -37,8 +42,7 @@ internal class ContractDelayFragment(
                 logout()
             }
         }
-
-        rclContractDelay.layoutManager(LinearLayoutManager(activity))
+        rclContractGoods.layoutManager(LinearLayoutManager(activity))
     }
 
     override fun onCreateView(
@@ -46,7 +50,7 @@ internal class ContractDelayFragment(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_contract_delay_contracts, container, false)
+        return inflater.inflate(R.layout.fragment_contract_goods_contracts, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -64,28 +68,28 @@ internal class ContractDelayFragment(
     }
 
     override fun handleObservers() {
-        viewModel.contractDelayResponse.observe(viewLifecycleOwner, {
+        viewModel.contractGoodsResponse.observe(viewLifecycleOwner, {
             it.result?.let { list ->
                 setAdapter(list)
 
-
             } ?: kotlin.run {
-                rclContractDelay.showNoData()
+                rclContractGoods.showNoData()
             }
         })
     }
+
 
     private fun getItems() {
         val activity = activity ?: return
 
         if (viewModel.isOfflineMode) {
-            viewModel.getContractDelay(contractId).observe(viewLifecycleOwner, {
+            viewModel.getContractGoods(ssId).observe(viewLifecycleOwner, {
                 try {
                     txtLastUpdateDate.text = activity.lastUpdateDate(it.xUpdateDate)
                     convertJsonToModel(it.xJson)
 
                 } catch (e: Exception) {
-                    rclContractDelay.showNoData()
+                    rclContractGoods.showNoData()
                     txtLastUpdateDate.text = getString(R.string.no_date)
                     ActionDialog.Builder()
                         .setAction(MessageStatus.ERROR)
@@ -100,31 +104,39 @@ internal class ContractDelayFragment(
             })
 
         } else
-            viewModel.getContractDelay(
-                contractId,
-                ContractDelayRequest().also { request ->
-                    request.cdhId = 0
-                    request.jsonParameters = contractDelayJson(contractId)
-                    request.userId = viewModel.userId
-                    request.pageNumber = pageNumber
-                    request.typeOperation = 101
+            getGoods()
+    }
+
+    private fun getGoods() {
+        viewModel.getContractGoods(
+            ssId,
+            ContractGoodsRequest().also { request ->
+                request.cdId = 0
+                request.pageNumber = pageNumber
+                request.jsonParameters = contractGoodsJson(contractId)
+                request.userId = viewModel.userId
+                request.typeOperation = when (ssId) {
+                    ContractsConst.ContractGoods.KEY_GOODS -> 101
+                    ContractsConst.ContractGoods.KEY_SERVICES -> 102
+                    else -> 103
                 }
-            )
+            }
+        )
     }
 
 
     private fun convertJsonToModel(json: String?) {
-        viewModel.getContractDelay(json).observe(viewLifecycleOwner, { list ->
+        viewModel.getContractGoods(json).observe(viewLifecycleOwner, { list ->
             setAdapter(list)
         })
     }
 
 
-    private fun setAdapter(list: List<ContractDelayResponse.Result>) {
+    private fun setAdapter(list: MutableList<ContractGoodsResponse.Result>) {
         if (list.isEmpty())
-            rclContractDelay.showNoData()
+            rclContractGoods.showNoData()
         else {
-            rclContractDelay.view?.adapter = ContractsAdapter(list)
+            rclContractGoods.view?.adapter = ContractsAdapter(list)
         }
     }
 
@@ -132,14 +144,13 @@ internal class ContractDelayFragment(
         super.handleError()
         viewModel.error.observe(viewLifecycleOwner, {
             if (viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED) {
-                rclContractDelay.showNoData()
+                rclContractGoods.showNoData()
                 activity?.showError(it?.message)
             }
         })
-
     }
 
     companion object {
-        val TAG = "$APP_NAME: ${ContractDelayFragment::class.java.simpleName}"
+        val TAG = "$APP_NAME: ${ContractsGoodsListFragment::class.java.simpleName}"
     }
 }

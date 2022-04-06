@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 
 
-@Entity(tableName = "tbl_ContractDelay")
-class ContractDelay {
+@Entity(tableName = "tbl_ContractExtend")
+class ContractsExtend {
     @PrimaryKey(autoGenerate = true)
     var xId: Int = 0
     var xContractId: Long?= null

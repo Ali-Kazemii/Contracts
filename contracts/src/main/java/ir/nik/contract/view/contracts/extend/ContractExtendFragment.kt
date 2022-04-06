@@ -16,7 +16,7 @@ import ir.nik.contract.utils.APP_NAME
 import ir.nik.contract.utils.contractExtendJson
 import ir.nik.contract.utils.lastUpdateDate
 import ir.nik.contract.view.base.ContractsBaseFragment
-import ir.nik.contract.view.contracts.ContractViewModel
+import ir.nik.contract.view.contracts.ContractsViewModel
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.fragment_contract_extend_contracts.*
 import kotlinx.android.synthetic.main.layout_last_update_contracts.*
@@ -26,7 +26,7 @@ internal class ContractExtendFragment(
     private val contractId: Long
 ): ContractsBaseFragment() {
 
-    private val viewModel by viewModel<ContractViewModel>()
+    private val viewModel by viewModel<ContractsViewModel>()
     private var pageNumber = 1
 
     override fun setup() {

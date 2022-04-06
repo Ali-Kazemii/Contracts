@@ -10,35 +10,35 @@ import ir.nik.contract.utils.OnBackPressed
 import ir.nik.contract.view.attachment.ContractsAttachmentActivity
 import ir.nik.contract.view.base.ContractsBaseActivity
 import ir.nik.contract.view.contracts.accounting.ContractsAccountingDocumentFragment
-import ir.nik.contract.view.contracts.attachment.ContractAttachmentFragment
-import ir.nik.contract.view.contracts.delay.ContractDelayFragment
-import ir.nik.contract.view.contracts.executive.ContractExecutiveFragment
+import ir.nik.contract.view.contracts.attachment.ContractsAttachmentFragment
+import ir.nik.contract.view.contracts.delay.ContractsDelayFragment
+import ir.nik.contract.view.contracts.executive.ContractsExecutiveFragment
 import ir.nik.contract.view.contracts.extend.ContractExtendFragment
-import ir.nik.contract.view.contracts.filter.ContractFilterFragment
-import ir.nik.contract.view.contracts.filter.ContractFilterModel
-import ir.nik.contract.view.contracts.fragment.ContractListFragment
+import ir.nik.contract.view.contracts.filter.ContractsFilterFragment
+import ir.nik.contract.view.contracts.filter.ContractsFilterModel
+import ir.nik.contract.view.contracts.fragment.ContractsListFragment
 import ir.nik.contract.view.contracts.goods.item.ContractsGoodsSubSystemFragment
-import ir.nik.contract.view.contracts.goods.list.ContractGoodsListFragment
+import ir.nik.contract.view.contracts.goods.list.ContractsGoodsListFragment
 import ir.nik.contract.view.contracts.peyman.ContractsPeymanCardFragment
-import ir.nik.contract.view.contracts.search.ContractSearchFragment
-import ir.nik.contract.view.contracts.status.ContractStatusFragment
+import ir.nik.contract.view.contracts.search.ContractsSearchFragment
+import ir.nik.contract.view.contracts.status.ContractsStatusFragment
 import ir.nik.contract.view.noconnection.ContractsNoConnectionFragment
 import ir.nik.contracts.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ContractsActivity : ContractsBaseActivity() {
 
-    private val viewModel by viewModel<ContractViewModel>()
-    private var listener: OnContractItemListener? = null
+    private val viewModel by viewModel<ContractsViewModel>()
+    private var listener: OnContractsItemListener? = null
 
 
     override fun setup() {
-        listener = object : OnContractItemListener {
+        listener = object : OnContractsItemListener {
             override fun onSearch() {
                 gotoSearch()
             }
 
-            override fun onFilter(listFilter: MutableList<ContractFilterModel>) {
+            override fun onFilter(listFilter: MutableList<ContractsFilterModel>) {
                 gotoContractFilter(listFilter)
             }
 
@@ -109,8 +109,8 @@ class ContractsActivity : ContractsBaseActivity() {
     private fun gotoContractStatus(contractId: Long) {
         replaceFragmentInActivity(
             R.id.container,
-            ContractStatusFragment(contractId),
-            ContractStatusFragment.TAG
+            ContractsStatusFragment(contractId),
+            ContractsStatusFragment.TAG
         )
     }
 
@@ -125,8 +125,8 @@ class ContractsActivity : ContractsBaseActivity() {
     private fun gotoDelayFragment(contractId: Long) {
         replaceFragmentInActivity(
             R.id.container,
-            ContractDelayFragment(contractId),
-            ContractDelayFragment.TAG
+            ContractsDelayFragment(contractId),
+            ContractsDelayFragment.TAG
         )
     }
 
@@ -154,29 +154,29 @@ class ContractsActivity : ContractsBaseActivity() {
     ) {
         replaceFragmentInActivity(
             R.id.container,
-            ContractGoodsListFragment(
+            ContractsGoodsListFragment(
                 contractId = contractId,
                 ssId = ssId,
                 name = name
             ),
-            ContractGoodsListFragment.TAG
+            ContractsGoodsListFragment.TAG
         )
     }
 
     private fun gotoExecutive(contractId: Long) {
         replaceFragmentInActivity(
             R.id.container,
-            ContractExecutiveFragment(contractId),
-            ContractExecutiveFragment.TAG
+            ContractsExecutiveFragment(contractId),
+            ContractsExecutiveFragment.TAG
         )
     }
 
     private fun gotoContractAttachment(contractId: Long) {
         replaceFragmentInActivity(
             R.id.container,
-            ContractAttachmentFragment(
+            ContractsAttachmentFragment(
                 contractId,
-                object : ContractAttachmentFragment.OnActionListener {
+                object : ContractsAttachmentFragment.OnActionListener {
                     override fun onItemClick(dcId: Long, caId: Long) {
                         val intent = Intent(this@ContractsActivity, ContractsAttachmentActivity::class.java)
                         val bundle = Bundle()
@@ -191,52 +191,52 @@ class ContractsActivity : ContractsBaseActivity() {
                     }
                 }
             ),
-            ContractAttachmentFragment.TAG
+            ContractsAttachmentFragment.TAG
         )
     }
 
     private fun gotoContract() {
         replaceFragmentInActivity(
             R.id.container,
-            ContractListFragment(
+            ContractsListFragment(
                 listener = listener
             ),
-            ContractListFragment.TAG
+            ContractsListFragment.TAG
         )
     }
 
-    private fun gotoContractListWithFilter(list: MutableList<ContractFilterModel>) {
+    private fun gotoContractListWithFilter(list: MutableList<ContractsFilterModel>) {
         replaceFragmentInActivity(
             R.id.container,
-            ContractListFragment(
+            ContractsListFragment(
                 list,
                 listener
             ),
-            ContractListFragment.TAG
+            ContractsListFragment.TAG
         )
     }
 
     private fun gotoSearch() {
         replaceFragmentInActivity(
             R.id.container,
-            ContractSearchFragment(listener),
-            ContractSearchFragment.TAG
+            ContractsSearchFragment(listener),
+            ContractsSearchFragment.TAG
         )
     }
 
 
-    private fun gotoContractFilter(listFilter: MutableList<ContractFilterModel>) {
+    private fun gotoContractFilter(listFilter: MutableList<ContractsFilterModel>) {
         replaceFragmentInActivity(
             R.id.container,
-            ContractFilterFragment(
+            ContractsFilterFragment(
                 listFilter,
-                object : ContractFilterFragment.OnActionListener {
-                    override fun onFilterChoose(list: MutableList<ContractFilterModel>) {
+                object : ContractsFilterFragment.OnActionListener {
+                    override fun onFilterChoose(list: MutableList<ContractsFilterModel>) {
                         gotoContractListWithFilter(list)
                     }
                 }
             ),
-            ContractFilterFragment.TAG
+            ContractsFilterFragment.TAG
         )
     }
 

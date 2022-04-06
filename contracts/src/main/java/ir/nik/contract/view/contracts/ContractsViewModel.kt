@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import ir.awlrhm.modules.extentions.convertModelToJson
-import ir.nik.contract.data.database.ContractLocalRepository
+import ir.nik.contract.data.database.ContractsLocalRepository
 import ir.nik.contract.data.database.entity.*
 import ir.nik.contract.data.local.ContractPreferenceConfiguration
 import ir.nik.contract.data.network.api.ContractRemoteRepository
@@ -16,10 +16,10 @@ import ir.nik.contract.utils.*
 import ir.nik.contract.view.base.ContractBaseViewModel
 import kotlinx.coroutines.launch
 
-internal class ContractViewModel(
+internal class ContractsViewModel(
     pref: ContractPreferenceConfiguration,
     private val remote: ContractRemoteRepository,
-    private val repository: ContractLocalRepository
+    private val repository: ContractsLocalRepository
 ): ContractBaseViewModel(pref, remote) {
 
     val projectCustomerResponse = MutableLiveData<ContractCustomerResponse>()
@@ -41,7 +41,7 @@ internal class ContractViewModel(
                     data.result?.let { list ->
                         deleteContracts()
                         insertContract(
-                            Contract().apply {
+                            Contracts().apply {
                                 this.xJson =
                                     convertModelToJson(list as List<ContractResponse.Result>)
                                 this.xUpdateDate = data.dateTime
@@ -89,7 +89,7 @@ internal class ContractViewModel(
                         if (list.isNotEmpty()) {
                             deleteContractAttachment(contractId)
                             insertContractAttachment(
-                                ContractAttachment().apply {
+                                ContractsAttachment().apply {
                                     this.xContractId = contractId
                                     this.xJson =
                                         convertModelToJson(list)
@@ -119,7 +119,7 @@ internal class ContractViewModel(
                         if (list.isNotEmpty()) {
                             deleteContractExecutive(contractId)
                             insertContractExecutive(
-                                ContractExecutive().apply {
+                                ContractsExecutive().apply {
                                     this.xContractId = contractId
                                     this.xJson =
                                         convertModelToJson(list)
@@ -150,7 +150,7 @@ internal class ContractViewModel(
                         if (list.isNotEmpty()) {
                             deleteContractGoods(contractId)
                             insertContractGoods(
-                                ContractGoods().apply {
+                                ContractsGoods().apply {
                                     this.xContractId = contractId
                                     this.xJson =
                                         convertModelToJson(list)
@@ -181,7 +181,7 @@ internal class ContractViewModel(
                         if (list.isNotEmpty()) {
                             deleteContractDelay(contractId)
                             insertContractDelay(
-                                ContractDelay().apply {
+                                ContractsDelay().apply {
                                     this.xContractId = contractId
                                     this.xJson =
                                         convertModelToJson(list)
@@ -211,7 +211,7 @@ internal class ContractViewModel(
                         if (list.isNotEmpty()) {
                             deleteContractExtend(contractId)
                             insertContractExtend(
-                                ContractExtend().apply {
+                                ContractsExtend().apply {
                                     this.xContractId = contractId
                                     this.xJson =
                                         convertModelToJson(list)
@@ -288,7 +288,7 @@ internal class ContractViewModel(
     /** #Begin Contract ================================================== **/
     fun getContractDb() = repository.getContracts()
 
-    fun insertContract(contract: Contract) {
+    fun insertContract(contract: Contracts) {
         viewModelScope.launch {
             repository.insertContract(contract)
         }
@@ -326,7 +326,7 @@ internal class ContractViewModel(
         }
     }
 
-    fun insertContractAttachment(contractAttachment: ContractAttachment) {
+    fun insertContractAttachment(contractAttachment: ContractsAttachment) {
         viewModelScope.launch {
             repository.insertContractAttachment(contractAttachment)
         }
@@ -352,7 +352,7 @@ internal class ContractViewModel(
         }
     }
 
-    fun insertContractDelay(contractDelay: ContractDelay) {
+    fun insertContractDelay(contractDelay: ContractsDelay) {
         viewModelScope.launch {
             repository.insertContractDelay(contractDelay)
         }
@@ -378,7 +378,7 @@ internal class ContractViewModel(
         }
     }
 
-    fun insertContractExecutive(contractExecutive: ContractExecutive) {
+    fun insertContractExecutive(contractExecutive: ContractsExecutive) {
         viewModelScope.launch {
             repository.insertContractExecutive(contractExecutive)
         }
@@ -404,7 +404,7 @@ internal class ContractViewModel(
         }
     }
 
-    fun insertContractExtend(contractExtend: ContractExtend) {
+    fun insertContractExtend(contractExtend: ContractsExtend) {
         viewModelScope.launch {
             repository.insertContractExtend(contractExtend)
         }
@@ -430,7 +430,7 @@ internal class ContractViewModel(
         }
     }
 
-    fun insertContractGoods(contractGoods: ContractGoods) {
+    fun insertContractGoods(contractGoods: ContractsGoods) {
         viewModelScope.launch {
             repository.insertContractGoods(contractGoods)
         }

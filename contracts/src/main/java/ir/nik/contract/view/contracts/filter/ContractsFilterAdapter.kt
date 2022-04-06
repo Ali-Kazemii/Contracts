@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.item_chip_filter_contracts.view.*
 
-internal class ContractFilterAdapter(
-    private val list: MutableList<ContractFilterModel>,
+internal class ContractsFilterAdapter(
+    private val list: MutableList<ContractsFilterModel>,
     private val listener: OnActionListener
-) : RecyclerView.Adapter<ContractFilterAdapter.CustomViewHolder>() {
+) : RecyclerView.Adapter<ContractsFilterAdapter.CustomViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_chip_filter_contracts, parent, false)
@@ -24,7 +24,7 @@ internal class ContractFilterAdapter(
 
     inner class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun onBind(model: ContractFilterModel) {
+        fun onBind(model: ContractsFilterModel) {
             itemView.txtChip.text = model.name
             itemView.chip.setOnClickListener {
                 list.removeAt(list.indexOf(model))
@@ -34,7 +34,7 @@ internal class ContractFilterAdapter(
     }
 
     interface OnActionListener {
-        fun onDeleteFilter(list: MutableList<ContractFilterModel>)
+        fun onDeleteFilter(list: MutableList<ContractsFilterModel>)
     }
 }
 

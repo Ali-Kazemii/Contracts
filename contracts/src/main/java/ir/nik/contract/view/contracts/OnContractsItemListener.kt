@@ -1,11 +1,11 @@
 package ir.nik.contract.view.contracts
 
 import ir.nik.contract.data.network.model.response.ContractResponse
-import ir.nik.contract.view.contracts.filter.ContractFilterModel
+import ir.nik.contract.view.contracts.filter.ContractsFilterModel
 
-internal interface OnContractItemListener {
+internal interface OnContractsItemListener {
     fun onSearch()
-    fun onFilter(listFilter: MutableList<ContractFilterModel>)
+    fun onFilter(listFilter: MutableList<ContractsFilterModel>)
     fun onAttachment(model: ContractResponse.Result)
     fun onExecutive(model: ContractResponse.Result)
     fun onExtend(model: ContractResponse.Result)

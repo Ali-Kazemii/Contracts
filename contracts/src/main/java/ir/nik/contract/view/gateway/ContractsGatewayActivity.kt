@@ -8,7 +8,7 @@ import ir.nik.contract.di.injectContractsKoin
 import ir.nik.contract.view.base.ContractPrivateViewModel
 import ir.nik.contract.view.contracts.ContractsActivity
 import ir.nik.contract.view.gateway.model.ContractsBindDataModel
-import ir.nik.contract.view.gateway.model.KEY_MODULE_CONTACTS
+import ir.nik.contract.view.gateway.model.KEY_MODULE_CONTRACTS
 import ir.nik.contracts.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -50,7 +50,7 @@ class ContractsGatewayActivity : AppCompatActivity() {
 
     private fun getInitValues() {
 
-        val model = intent.getSerializableExtra(KEY_MODULE_CONTACTS) as ContractsBindDataModel
+        val model = intent.getSerializableExtra(KEY_MODULE_CONTRACTS) as ContractsBindDataModel
 
         viewModel.accessToken = model.token
 

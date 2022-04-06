@@ -12,7 +12,7 @@ import ir.nik.contract.utils.APP_NAME
 import ir.nik.contract.utils.ContractsConst
 import ir.nik.contract.utils.subSystemJson
 import ir.nik.contract.view.base.ContractsBaseFragment
-import ir.nik.contract.view.contracts.ContractViewModel
+import ir.nik.contract.view.contracts.ContractsViewModel
 import ir.nik.contract.view.item.ContractsItemsAdapter
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.fragment_goods_subsystem_contracts.*
@@ -22,7 +22,7 @@ internal class ContractsGoodsSubSystemFragment(
     private val listener: OnActionListener
 ): ContractsBaseFragment() {
 
-    private val viewModel by viewModel<ContractViewModel>()
+    private val viewModel by viewModel<ContractsViewModel>()
 
     override fun setup() {
         rclSubsystem.layoutManager(

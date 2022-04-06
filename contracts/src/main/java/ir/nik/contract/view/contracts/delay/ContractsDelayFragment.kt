@@ -1,4 +1,4 @@
-package ir.nik.contract.view.contracts.executive
+package ir.nik.contract.view.contracts.delay
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,24 +10,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ir.awlrhm.modules.enums.MessageStatus
 import ir.awlrhm.modules.extentions.showError
 import ir.awlrhm.modules.view.ActionDialog
-import ir.nik.contract.data.network.model.request.ContractExecutiveRequest
-import ir.nik.contract.data.network.model.response.ContractExecutiveResponse
+import ir.nik.contract.data.network.model.request.ContractDelayRequest
+import ir.nik.contract.data.network.model.response.ContractDelayResponse
 import ir.nik.contract.utils.APP_NAME
-import ir.nik.contract.utils.contractExecutiveJson
+import ir.nik.contract.utils.contractDelayJson
 import ir.nik.contract.utils.lastUpdateDate
 import ir.nik.contract.view.base.ContractsBaseFragment
-import ir.nik.contract.view.contracts.ContractViewModel
+import ir.nik.contract.view.contracts.ContractsViewModel
 import ir.nik.contracts.R
-import kotlinx.android.synthetic.main.fragment_contract_executive_contracts.*
+import kotlinx.android.synthetic.main.fragment_contract_delay_contracts.*
 import kotlinx.android.synthetic.main.layout_last_update_contracts.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-internal class ContractExecutiveFragment(
+internal class ContractsDelayFragment(
     private val contractId: Long
 ) : ContractsBaseFragment() {
 
-    private val viewModel by viewModel<ContractViewModel>()
-    private var pageNumber = 1
+    private val viewModel by viewModel<ContractsViewModel>()
+    private val pageNumber = 1
 
     override fun setup() {
         if (viewModel.isOfflineMode) {
@@ -38,9 +38,7 @@ internal class ContractExecutiveFragment(
             }
         }
 
-        rclContractExecutive.layoutManager(
-            LinearLayoutManager(activity)
-        )
+        rclContractDelay.layoutManager(LinearLayoutManager(activity))
     }
 
     override fun onCreateView(
@@ -48,7 +46,7 @@ internal class ContractExecutiveFragment(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_contract_executive_contracts, container, false)
+        return inflater.inflate(R.layout.fragment_contract_delay_contracts, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,37 +57,35 @@ internal class ContractExecutiveFragment(
 
     override fun handleOnClickListeners() {
         val activity = activity ?: return
+
         btnBack.setOnClickListener {
             activity.onBackPressed()
         }
     }
 
     override fun handleObservers() {
-        viewModel.contractExecutiveResponse.observe(viewLifecycleOwner, {
-            if (viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED) {
-                it.result?.let { list ->
-                    setAdapter(list)
+        viewModel.contractDelayResponse.observe(viewLifecycleOwner, {
+            it.result?.let { list ->
+                setAdapter(list)
 
 
-                } ?: kotlin.run {
-                    rclContractExecutive.showNoData()
-                }
+            } ?: kotlin.run {
+                rclContractDelay.showNoData()
             }
         })
     }
-
 
     private fun getItems() {
         val activity = activity ?: return
 
         if (viewModel.isOfflineMode) {
-            viewModel.getContractExecutive(contractId).observe(viewLifecycleOwner, {
+            viewModel.getContractDelay(contractId).observe(viewLifecycleOwner, {
                 try {
                     txtLastUpdateDate.text = activity.lastUpdateDate(it.xUpdateDate)
                     convertJsonToModel(it.xJson)
 
                 } catch (e: Exception) {
-                    rclContractExecutive.showNoData()
+                    rclContractDelay.showNoData()
                     txtLastUpdateDate.text = getString(R.string.no_date)
                     ActionDialog.Builder()
                         .setAction(MessageStatus.ERROR)
@@ -104,44 +100,46 @@ internal class ContractExecutiveFragment(
             })
 
         } else
-        viewModel.getContractExecutive(
-            contractId,
-            ContractExecutiveRequest().also { request ->
-                request.cepId = 0
-                request.jsonParameters = contractExecutiveJson(contractId)
-                request.pageNumber = pageNumber
-                request.userId = viewModel.userId
-                request.typeOperation = 101
-            }
-        )
+            viewModel.getContractDelay(
+                contractId,
+                ContractDelayRequest().also { request ->
+                    request.cdhId = 0
+                    request.jsonParameters = contractDelayJson(contractId)
+                    request.userId = viewModel.userId
+                    request.pageNumber = pageNumber
+                    request.typeOperation = 101
+                }
+            )
     }
 
 
-
     private fun convertJsonToModel(json: String?) {
-        viewModel.getContractExecutive(json).observe(viewLifecycleOwner, { list ->
+        viewModel.getContractDelay(json).observe(viewLifecycleOwner, { list ->
             setAdapter(list)
         })
     }
 
 
-    private fun setAdapter(list: MutableList<ContractExecutiveResponse.Result>) {
+    private fun setAdapter(list: List<ContractDelayResponse.Result>) {
         if (list.isEmpty())
-            rclContractExecutive.showNoData()
-        else
-            rclContractExecutive.view?.adapter = ContractsAdapter(list)
+            rclContractDelay.showNoData()
+        else {
+            rclContractDelay.view?.adapter = ContractsAdapter(list)
+        }
     }
-
 
     override fun handleError() {
         super.handleError()
         viewModel.error.observe(viewLifecycleOwner, {
-            rclContractExecutive.showNoData()
-            activity?.showError(it?.message)
+            if (viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED) {
+                rclContractDelay.showNoData()
+                activity?.showError(it?.message)
+            }
         })
+
     }
 
     companion object {
-        val TAG = "$APP_NAME: ${ContractExecutiveFragment::class.java.simpleName}"
+        val TAG = "$APP_NAME: ${ContractsDelayFragment::class.java.simpleName}"
     }
 }

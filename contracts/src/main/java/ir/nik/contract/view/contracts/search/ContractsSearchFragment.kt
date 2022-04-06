@@ -17,18 +17,18 @@ import ir.awlrhm.modules.view.RecyclerView
 import ir.nik.contract.data.network.model.response.ContractListRequest
 import ir.nik.contract.utils.APP_NAME
 import ir.nik.contract.view.base.ContractsBaseFragment
-import ir.nik.contract.view.contracts.ContractViewModel
-import ir.nik.contract.view.contracts.OnContractItemListener
+import ir.nik.contract.view.contracts.ContractsViewModel
+import ir.nik.contract.view.contracts.OnContractsItemListener
 import ir.nik.contract.view.contracts.fragment.ContractsAdapter
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.fragment_search_contracts.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-internal class ContractSearchFragment(
-    private val listener: OnContractItemListener?
+internal class ContractsSearchFragment(
+    private val listener: OnContractsItemListener?
 ) : ContractsBaseFragment() {
 
-    private val viewModel by viewModel<ContractViewModel>()
+    private val viewModel by viewModel<ContractsViewModel>()
     private lateinit var adapter: ContractsAdapter
     private var pageNumber: Int = 1
     private val pageSize: Int = 5
@@ -187,6 +187,6 @@ internal class ContractSearchFragment(
     }
 
     companion object {
-        val TAG = "$APP_NAME: ${ContractSearchFragment::class.java.simpleName}"
+        val TAG = "$APP_NAME: ${ContractsSearchFragment::class.java.simpleName}"
     }
 }

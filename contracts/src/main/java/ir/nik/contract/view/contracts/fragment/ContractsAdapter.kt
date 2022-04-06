@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ir.nik.contract.data.network.model.response.ContractResponse
-import ir.nik.contract.view.contracts.OnContractItemListener
+import ir.nik.contract.view.contracts.OnContractsItemListener
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.item_contract.view.*
 
 internal class ContractsAdapter(
-    private val listener: OnContractItemListener?
+    private val listener: OnContractsItemListener?
 ): RecyclerView.Adapter<ContractsAdapter.CustomViewHolder>() {
 
     private val list: MutableList<ContractResponse.Result> = mutableListOf()

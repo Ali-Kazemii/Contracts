@@ -3,15 +3,15 @@ package ir.nik.contract.di
 import android.app.Application
 import androidx.room.Room
 import ir.awlrhm.modules.utils.calendar.PersianCalendar
-import ir.nik.contract.data.database.ContractDatabase
-import ir.nik.contract.data.database.ContractLocalRepository
+import ir.nik.contract.data.database.ContractsDatabase
+import ir.nik.contract.data.database.ContractsLocalRepository
 import ir.nik.contract.data.local.ContractPreferenceConfiguration
 import ir.nik.contract.data.network.api.ContractApiClient
 import ir.nik.contract.data.network.api.ContractRemoteRepository
 import ir.nik.contract.utils.DATABASE_NAME
 import ir.nik.contract.view.attachment.ContractsAttachmentViewModel
 import ir.nik.contract.view.base.ContractPrivateViewModel
-import ir.nik.contract.view.contracts.ContractViewModel
+import ir.nik.contract.view.contracts.ContractsViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -29,7 +29,7 @@ val appModule = module {
 
 val viewModelModules = module {
     viewModel { ContractPrivateViewModel(get()) }
-    viewModel { ContractViewModel(get(), get(), get()) }
+    viewModel { ContractsViewModel(get(), get(), get()) }
     viewModel { ContractsAttachmentViewModel(get(), get(), get(), get()) }
 
 }
@@ -42,21 +42,21 @@ val networkModules = module {
 
 val databaseModule = module {
 
-    fun provideDatabase(application: Application): ContractDatabase {
+    fun provideContractsDatabase(application: Application): ContractsDatabase {
         /*val MIGRATION_2_3 = object : Migration(2, 3) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER TABLE tbl_Document ADD COLUMN xDocumentType INTEGER")
             }
         }*/
-        return Room.databaseBuilder(application, ContractDatabase::class.java, DATABASE_NAME)
+        return Room.databaseBuilder(application, ContractsDatabase::class.java, DATABASE_NAME)
             .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
 //            .addMigrations(MIGRATION_2_3)
             .build()
     }
 
-    single { provideDatabase(androidApplication()) }
-    single { ContractLocalRepository(get()) }
+    single { provideContractsDatabase(androidApplication()) }
+    single { ContractsLocalRepository(get()) }
 }
 
 

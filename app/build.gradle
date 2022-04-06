@@ -8,6 +8,15 @@ plugins {
 android {
     compileSdk 31
 
+    signingConfigs {
+        register("release") {
+            storeFile = file(System.getenv("KEYPATH"))
+            keyAlias = System.getenv("ALIAS")
+            keyPassword = System.getenv("KEYPASSWORD")
+            storePassword = System.getenv("STOREPASSWORD")
+        }
+    }
+
     defaultConfig {
         applicationId "ir.nik.modulecontracts"
         minSdk 18
@@ -19,13 +28,14 @@ android {
     }
 
     buildTypes {
-       debug {
+        getByName("debug") {
             debuggable true
             minifyEnabled false
             shrinkResources false
         }
 
-        release {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
             debuggable false
             // Enables resource shrinking, which is performed by the
             // Android Gradle plugin.
@@ -45,7 +55,6 @@ android {
 
 dependencies {
 
-    implementation project(path: ':contracts')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.core:core-ktx:1.7.0"
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -54,5 +63,8 @@ dependencies {
     //koin
     implementation "io.insert-koin:koin-core:$koin_version"
     implementation "io.insert-koin:koin-android:$koin_version"
+    //contracts
+    implementation 'com.github.Ali-Kazemii:Contracts:1.0.2'
+//    implementation project(path: ':contracts')
 }
 apply plugin: 'koin'

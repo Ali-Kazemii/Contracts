@@ -17,18 +17,18 @@ import ir.nik.contract.utils.ContractsConst
 import ir.nik.contract.utils.contractAttachmentJson
 import ir.nik.contract.utils.lastUpdateDate
 import ir.nik.contract.view.base.ContractsBaseFragment
-import ir.nik.contract.view.contracts.ContractViewModel
+import ir.nik.contract.view.contracts.ContractsViewModel
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.fragment_contract_attachment_contracts.*
 import kotlinx.android.synthetic.main.layout_last_update_contracts.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-internal class ContractAttachmentFragment(
+internal class ContractsAttachmentFragment(
     private val contractId: Long,
     private val listener: OnActionListener
 ) : ContractsBaseFragment() {
 
-    private val viewModel by viewModel<ContractViewModel>()
+    private val viewModel by viewModel<ContractsViewModel>()
     private var pageNumber = 1
 
     override fun setup() {
@@ -165,6 +165,6 @@ internal class ContractAttachmentFragment(
     }
 
     companion object {
-        val TAG = "$APP_NAME: ${ContractAttachmentFragment::class.java.simpleName}"
+        val TAG = "$APP_NAME: ${ContractsAttachmentFragment::class.java.simpleName}"
     }
 }

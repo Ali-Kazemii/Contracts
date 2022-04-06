@@ -10,7 +10,7 @@ import ir.nik.contract.data.database.entity.*
 
 @Database(
     entities = [
-        (ContractsAttachment::class),
+        (GeneralContractsAttachment::class),
         (ContractsDefect::class),
         (ContractsDesignGoods::class),
         (ContractsDocument::class),
@@ -20,18 +20,18 @@ import ir.nik.contract.data.database.entity.*
         (ContractsProjectReport::class),
         (ContractsProjectAttachment::class),
         (ContractsProjectDesignStatus::class),
-        (Contract::class),
-        (ContractDelay::class),
-        (ContractExecutive::class),
-        (ContractExtend::class),
-        (ContractAttachment::class),
-        (ContractGoods::class)
+        (Contracts::class),
+        (ContractsDelay::class),
+        (ContractsExecutive::class),
+        (ContractsExtend::class),
+        (ContractsAttachment::class),
+        (ContractsGoods::class)
     ],
     version = 1,
     exportSchema = false
 )
 
-abstract class ContractDatabase : RoomDatabase() {
+abstract class ContractsDatabase : RoomDatabase() {
     abstract fun projectDao(): ContractsProjectDao
     abstract fun contractDao(): ContractDao
     abstract fun progressDao(): ContractsProgressDao

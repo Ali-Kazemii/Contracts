@@ -7,8 +7,8 @@ import kotlinx.coroutines.withContext
 /**
  * Created by Ali_Kazemi on 19/09/2021.
  */
-class ContractLocalRepository(
-  private val database: ContractDatabase
+class ContractsLocalRepository(
+  private val database: ContractsDatabase
 ) {
 
   /** #Begin Projects ================================================== **/
@@ -185,7 +185,7 @@ class ContractLocalRepository(
 
   fun getContracts() = database.contractDao().getContract()
 
-  suspend fun insertContract(contract: Contract){
+  suspend fun insertContract(contract: Contracts){
     withContext(Dispatchers.IO){
       database.contractDao().insertContract(contract)
     }
@@ -205,7 +205,7 @@ class ContractLocalRepository(
   fun getContractAttachment(contractId: Long)
           = database.contractDao().getContractAttachment(contractId)
 
-  suspend fun insertContractAttachment(contractAttachment: ContractAttachment){
+  suspend fun insertContractAttachment(contractAttachment: ContractsAttachment){
     withContext(Dispatchers.IO){
       database.contractDao().insertContractAttachment(contractAttachment)
     }
@@ -225,7 +225,7 @@ class ContractLocalRepository(
   fun getContractDelay(contractId: Long)
           = database.contractDao().getContractDelay(contractId)
 
-  suspend fun insertContractDelay(contractDelay: ContractDelay){
+  suspend fun insertContractDelay(contractDelay: ContractsDelay){
     withContext(Dispatchers.IO){
       database.contractDao().insertContractDelay(contractDelay)
     }
@@ -245,7 +245,7 @@ class ContractLocalRepository(
   fun getContractExecutive(contractId: Long)
           = database.contractDao().getContractExecutive(contractId)
 
-  suspend fun insertContractExecutive(contractExecutive: ContractExecutive){
+  suspend fun insertContractExecutive(contractExecutive: ContractsExecutive){
     withContext(Dispatchers.IO){
       database.contractDao().insertContractExecutive(contractExecutive)
     }
@@ -264,7 +264,7 @@ class ContractLocalRepository(
   fun getContractExtend(contractId: Long)
           = database.contractDao().getContractExtend(contractId)
 
-  suspend fun insertContractExtend(contractExtend: ContractExtend){
+  suspend fun insertContractExtend(contractExtend: ContractsExtend){
     withContext(Dispatchers.IO){
       database.contractDao().insertContractExtend(contractExtend)
     }
@@ -283,7 +283,7 @@ class ContractLocalRepository(
   fun getContractGoods(contractId: Long)
           = database.contractDao().getContractGoods(contractId)
 
-  suspend fun insertContractGoods(contractGoods: ContractGoods){
+  suspend fun insertContractGoods(contractGoods: ContractsGoods){
     withContext(Dispatchers.IO){
       database.contractDao().insertContractGoods(contractGoods)
     }
@@ -302,7 +302,7 @@ class ContractLocalRepository(
   fun getAttachments(relatedId: Long, dcId: Long)
           = database.attachmentDao().getAttachments(relatedId, dcId)
 
-  suspend fun insertAttachment(attachment: ContractsAttachment){
+  suspend fun insertAttachment(attachment: GeneralContractsAttachment){
     withContext(Dispatchers.IO){
       database.attachmentDao().insertAttachment(attachment)
     }

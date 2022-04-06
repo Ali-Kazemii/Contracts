@@ -6,8 +6,8 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import ir.awlrhm.modules.extentions.convertModelToJson
 import ir.awlrhm.modules.utils.calendar.PersianCalendar
-import ir.nik.contract.data.database.ContractLocalRepository
-import ir.nik.contract.data.database.entity.ContractsAttachment
+import ir.nik.contract.data.database.ContractsLocalRepository
+import ir.nik.contract.data.database.entity.GeneralContractsAttachment
 import ir.nik.contract.data.local.ContractPreferenceConfiguration
 import ir.nik.contract.data.network.api.ContractRemoteRepository
 import ir.nik.contract.data.network.model.model.ContractBaseResponse
@@ -24,7 +24,7 @@ internal class ContractsAttachmentViewModel(
     pref: ContractPreferenceConfiguration,
     calendar: PersianCalendar,
     private val remote: ContractRemoteRepository,
-    private val repository: ContractLocalRepository
+    private val repository: ContractsLocalRepository
 ) : ContractBaseViewModel(
     pref = pref,
     calendar = calendar
@@ -46,7 +46,7 @@ internal class ContractsAttachmentViewModel(
                         if (list.isNotEmpty()) {
                             deleteAttachmentDb(relatedTableId, dcId)
                             insertAttachment(
-                                ContractsAttachment().apply {
+                                GeneralContractsAttachment().apply {
                                     this.xRelatedTableId = relatedTableId
                                     this.xDcId = dcId
                                     this.xJson = convertModelToJson(list)
@@ -117,7 +117,7 @@ internal class ContractsAttachmentViewModel(
         }
     }
 
-    fun insertAttachment(attachment: ContractsAttachment) {
+    fun insertAttachment(attachment: GeneralContractsAttachment) {
         viewModelScope.launch {
             repository.insertAttachment(attachment)
         }

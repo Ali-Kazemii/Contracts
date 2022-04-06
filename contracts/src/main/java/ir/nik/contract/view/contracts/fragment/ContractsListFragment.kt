@@ -16,32 +16,32 @@ import ir.nik.contract.utils.OnBackPressed
 import ir.nik.contract.utils.contractFilterContractStatusJson
 import ir.nik.contract.utils.lastUpdateDate
 import ir.nik.contract.view.base.ContractsBaseFragment
-import ir.nik.contract.view.contracts.ContractViewModel
-import ir.nik.contract.view.contracts.OnContractItemListener
-import ir.nik.contract.view.contracts.filter.ContractFilterAdapter
-import ir.nik.contract.view.contracts.filter.ContractFilterModel
+import ir.nik.contract.view.contracts.ContractsViewModel
+import ir.nik.contract.view.contracts.OnContractsItemListener
+import ir.nik.contract.view.contracts.filter.ContractsFilterAdapter
+import ir.nik.contract.view.contracts.filter.ContractsFilterModel
 import ir.nik.contracts.R
 import kotlinx.android.synthetic.main.fragment_contract_list_contracts.*
 import kotlinx.android.synthetic.main.layout_last_update_contracts.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-internal class ContractListFragment(
-    private val listener: OnContractItemListener?
+internal class ContractsListFragment(
+    private val listener: OnContractsItemListener?
 ) : ContractsBaseFragment(), OnBackPressed {
 
 
     constructor(
-        list: MutableList<ContractFilterModel>,
-        listener: OnContractItemListener?
+        list: MutableList<ContractsFilterModel>,
+        listener: OnContractsItemListener?
     ) : this(listener) {
         listFilter = list
     }
 
 
-    private val viewModel by viewModel<ContractViewModel>()
-    private lateinit var filterAdapter: ContractFilterAdapter
+    private val viewModel by viewModel<ContractsViewModel>()
+    private lateinit var filterAdapter: ContractsFilterAdapter
 
-    private var listFilter: MutableList<ContractFilterModel> = mutableListOf()
+    private var listFilter: MutableList<ContractsFilterModel> = mutableListOf()
     private lateinit var adapter: ContractsAdapter
 
     private var contractStatusId: Long = ContractStatus.CURRENT.value
@@ -72,12 +72,12 @@ internal class ContractListFragment(
         if (listFilter.isNotEmpty()) {
             rclFilter.isVisible = true
             filterAdapter =
-                ContractFilterAdapter(
+                ContractsFilterAdapter(
                     listFilter,
                     object :
-                        ContractFilterAdapter.OnActionListener {
+                        ContractsFilterAdapter.OnActionListener {
                         @SuppressLint("NotifyDataSetChanged")
-                        override fun onDeleteFilter(list: MutableList<ContractFilterModel>) {
+                        override fun onDeleteFilter(list: MutableList<ContractsFilterModel>) {
                             rclContract.showLoading()
                             filterAdapter.notifyDataSetChanged()
                             listFilter = list
@@ -312,6 +312,6 @@ internal class ContractListFragment(
     }
 
     companion object {
-        val TAG = "$APP_NAME: ${ContractListFragment::class.java.simpleName}"
+        val TAG = "$APP_NAME: ${ContractsListFragment::class.java.simpleName}"
     }
 }
